@@ -16,10 +16,10 @@ postRouter.post("/add", auth, async (req, res) => {
 
 postRouter.get("/", auth, async (req, res) => {
   try {
-    const posts = await NoteModel.find({ userID: req.body.userID });
-    res.send(notes);
+    const posts = await PostModel.find({ userID: req.body.userID });
+    res.status(200).send(posts);
   } catch (error) {
-    res.send({ error: error });
+    res.status(400).send({ error: error });
   }
 });
 
