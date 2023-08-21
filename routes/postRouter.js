@@ -30,7 +30,7 @@ postRouter.patch("/update/:postID", auth, async (req, res) => {
     if (post.userID !== req.body.userID) {
       res.send({ Message: "You are not authorized" });
     } else {
-      await PostModel.findByIdAndUpdate({ _id: postIDID }, req.body);
+      await PostModel.findByIdAndUpdate({ _id: postID }, req.body);
       res.send({ Message: "Post is updated successfully" });
     }
   } catch (error) {
@@ -45,7 +45,7 @@ postRouter.delete("/delete/:postID", auth, async (req, res) => {
     if (post.userID !== req.body.userID) {
       res.send({ Message: "You are not authorized" });
     } else {
-      await PostModel.findByIdAndDelete({ _id: noteID });
+      await PostModel.findByIdAndDelete({ _id: postID });
       res.send({ Message: "Post is deleted successfully" });
     }
   } catch (error) {
