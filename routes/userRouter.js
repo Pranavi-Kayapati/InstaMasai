@@ -62,4 +62,13 @@ userRouter.post("/login", async (req, res) => {
   }
 });
 
+userRouter.post("/logout", (req, res) => {
+  const expiredToken = jwt.sign({}, "instaapp", { expiresIn: 0 });
+  res.send({ message: "Logout successful", token: expiredToken });
+});
+
+module.exports = { userRouter };
+
+module.exports = { userRouter };
+
 module.exports = { userRouter };
